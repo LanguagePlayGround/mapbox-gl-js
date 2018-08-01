@@ -148,10 +148,10 @@ test('transform', (t) => {
 
         transform.zoom = 11;
         t.deepEqual(transform.coveringTiles(options), [
-            new OverscaledTileID(10, 0, 10, 511, 511),
-            new OverscaledTileID(10, 0, 10, 512, 511),
-            new OverscaledTileID(10, 0, 10, 511, 512),
-            new OverscaledTileID(10, 0, 10, 512, 512)]);
+            new OverscaledTileID(11, 0, 10, 511, 511),
+            new OverscaledTileID(11, 0, 10, 512, 511),
+            new OverscaledTileID(11, 0, 10, 511, 512),
+            new OverscaledTileID(11, 0, 10, 512, 512)]);
 
         t.end();
     });

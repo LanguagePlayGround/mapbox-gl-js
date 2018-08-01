@@ -477,8 +477,7 @@ class SourceCache extends Evented {
                 tileSize: this._source.tileSize,
                 minzoom: this._source.minzoom,
                 maxzoom: this._source.maxzoom,
-                roundZoom: this._source.roundZoom,
-                reparseOverscaled: this._source.reparseOverscaled
+                roundZoom: this._source.roundZoom
             });
 
             if (this._source.hasTile) {

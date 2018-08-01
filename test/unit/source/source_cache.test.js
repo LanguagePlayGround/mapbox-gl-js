@@ -747,7 +747,6 @@ test('SourceCache#update', (t) => {
 
 
         const sourceCache = createSourceCache({
-            reparseOverscaled: true,
             loadTile: function(tile, callback) {
                 tile.state = tile.tileID.overscaledZ === 16 ? 'loaded' : 'loading';
                 callback();
@@ -1293,7 +1292,6 @@ test('SourceCache#tilesIn', (t) => {
                 tile.additionalRadius = 0;
                 callback();
             },
-            reparseOverscaled: true,
             minzoom: 1,
             maxzoom: 1,
             tileSize: 512
@@ -1330,29 +1328,6 @@ test('SourceCache#tilesIn', (t) => {
                 t.equal(tiles[1].tile.tileSize, 1024);
                 t.equal(tiles[1].scale, 1);
                 t.deepEqual(tiles[1].queryGeometry, [[{x: -4096, y: 2048}, {x: 4096, y: 6144}]]);
-
-                t.end();
-            }
-        });
-        sourceCache.onAdd();
-    });
-
-    t.test('overscaled tiles', (t) => {
-        const sourceCache = createSourceCache({
-            loadTile: function(tile, callback) { tile.state = 'loaded'; callback(); },
-            reparseOverscaled: false,
-            minzoom: 1,
-            maxzoom: 1,
-            tileSize: 512
-        });
-
-        sourceCache.on('data', (e) => {
-            if (e.sourceDataType === 'metadata') {
-                const transform = new Transform();
-                transform.resize(512, 512);
-                transform.zoom = 2.0;
-                sourceCache.update(transform);
-
 
                 t.end();
             }

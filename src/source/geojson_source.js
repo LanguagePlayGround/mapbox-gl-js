@@ -70,7 +70,6 @@ class GeoJSONSource extends Evented implements Source {
     attribution: string;
 
     isTileClipped: boolean;
-    reparseOverscaled: boolean;
     _data: GeoJSON | string;
     _options: any;
     workerOptions: any;
@@ -98,7 +97,6 @@ class GeoJSONSource extends Evented implements Source {
         this.maxzoom = 18;
         this.tileSize = 512;
         this.isTileClipped = true;
-        this.reparseOverscaled = true;
         this._removed = false;
 
         this.dispatcher = dispatcher;

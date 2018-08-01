@@ -29,8 +29,6 @@ import {CanonicalTileID} from './tile_id';
  * @property {number} minzoom
  * @property {number} maxzoom
  * @property {boolean} isTileClipped `false` if tiles can be drawn outside their boundaries, `true` if they cannot.
- * @property {boolean} reparseOverscaled `true` if tiles should be sent back to the worker for each overzoomed zoom
- * level, `false` if not.
  * @property {boolean} roundZoom `true` if zoom levels are rounded to the nearest integer in the source data, `false`
  * if they are floor-ed to the nearest integer.
  */
@@ -46,7 +44,6 @@ export interface Source {
     isTileClipped?: boolean,
     mapbox_logo?: boolean,
     tileID?: CanonicalTileID;
-    reparseOverscaled?: boolean,
     vectorLayerIds?: Array<string>,
 
     hasTransition(): boolean;

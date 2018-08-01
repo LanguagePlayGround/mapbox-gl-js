@@ -220,7 +220,6 @@ class Transform {
      * @param {number} options.minzoom
      * @param {number} options.maxzoom
      * @param {boolean} options.roundZoom
-     * @param {boolean} options.reparseOverscaled
      * @param {boolean} options.renderWorldCopies
      * @returns {Array<Tile>} tiles
      */
@@ -230,7 +229,6 @@ class Transform {
             minzoom?: number,
             maxzoom?: number,
             roundZoom?: boolean,
-            reparseOverscaled?: boolean,
             renderWorldCopies?: boolean
         }
     ) {
@@ -248,7 +246,7 @@ class Transform {
             this.pointCoordinate(new Point(this.width, this.height), z),
             this.pointCoordinate(new Point(0, this.height), z)
         ];
-        return tileCover(z, cornerCoords, options.reparseOverscaled ? actualZ : z, this._renderWorldCopies)
+        return tileCover(z, cornerCoords, actualZ, this._renderWorldCopies)
             .sort((a, b) => centerPoint.dist(a.canonical) - centerPoint.dist(b.canonical));
     }
 

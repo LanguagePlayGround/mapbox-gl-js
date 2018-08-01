@@ -34,7 +34,6 @@ class VectorTileSource extends Evented implements Source {
     bounds: ?[number, number, number, number];
     tiles: Array<string>;
     tileBounds: TileBounds;
-    reparseOverscaled: boolean;
     isTileClipped: boolean;
     _tileJSONRequest: ?Cancelable;
 
@@ -48,7 +47,6 @@ class VectorTileSource extends Evented implements Source {
         this.maxzoom = 22;
         this.scheme = 'xyz';
         this.tileSize = 512;
-        this.reparseOverscaled = true;
         this.isTileClipped = true;
 
         extend(this, pick(options, ['url', 'scheme', 'tileSize']));
